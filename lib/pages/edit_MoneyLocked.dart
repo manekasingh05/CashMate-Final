@@ -7,10 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:cashmate_vscode/pages/budgetPlanner.dart';
 
 class EditMoneyScreen extends StatefulWidget {
-
-  static TextEditingController MoneyToLock = TextEditingController(text: '25,000');
+  static TextEditingController MoneyToLock =
+      TextEditingController(text: '25,000');
   static TextEditingController MoneyInWallet = TextEditingController();
-
 
   @override
   _EditMoneyScreenState createState() => _EditMoneyScreenState();
@@ -18,13 +17,13 @@ class EditMoneyScreen extends StatefulWidget {
 
 class _EditMoneyScreenState extends State<EditMoneyScreen> {
   int activeCategory = 0;
-   TextEditingController dateInput = TextEditingController();
-   TextEditingController dateInputFinal = TextEditingController();
-   
-   final amountLocked = EditMoneyScreen.MoneyToLock;
-   final amountInWallet = EditMoneyScreen.MoneyInWallet;
+  TextEditingController dateInput = TextEditingController();
+  TextEditingController dateInputFinal = TextEditingController();
 
- @override
+  final amountLocked = EditMoneyScreen.MoneyToLock;
+  final amountInWallet = EditMoneyScreen.MoneyInWallet;
+
+  @override
   void initState() {
     dateInput.text = 'Today';
     dateInputFinal.text = 'Tommorow';
@@ -34,8 +33,10 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       floatingActionButton: Image.asset("images/cartoon-5.png",
-       width: 160,),
+      floatingActionButton: Image.asset(
+        "images/cartoon-5.png",
+        width: 160,
+      ),
       backgroundColor: Colors.white,
       body: getBody(),
     );
@@ -73,45 +74,64 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
                       ),
                       Row(
                         children: [
-                        InkWell(
-                        onTap: () {
-                        showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        title: new Text("Do you want to cancel?", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        actions: <Widget>[
-          ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("Yes", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.moneylockRoute);
-            },
-          ),
-           ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("No", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.editMoneyLockingRoute);
-            },
-          ),
-        ],
-      );
-    },
-  );
-                        },
-                        child: Text("Cancel",
-                        style: TextStyle(
-                        color: Color(0xFF674AEF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        ),
-                        ),),
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    backgroundColor: Colors.white,
+                                    title: new Text(
+                                      "Do you want to cancel?",
+                                      style: TextStyle(
+                                          color: const Color.fromARGB(
+                                              255, 0, 0, 0)),
+                                    ),
+                                    actions: <Widget>[
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFF674AEF),
+                                        ),
+                                        child: new Text(
+                                          "Yes",
+                                          style: TextStyle(
+                                              color: const Color.fromARGB(
+                                                  255, 255, 255, 255)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, MyRoutes.moneylockRoute);
+                                        },
+                                      ),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFF674AEF),
+                                        ),
+                                        child: new Text(
+                                          "No",
+                                          style: TextStyle(
+                                              color: const Color.fromARGB(
+                                                  255, 255, 255, 255)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushNamed(context,
+                                              MyRoutes.editMoneyLockingRoute);
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                color: Color(0xFF674AEF),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
                         ],
                       )
                     ],
@@ -120,7 +140,6 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
               ),
             ),
           ),
-       
           SizedBox(
             height: 20,
           ),
@@ -172,28 +191,25 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: black),
                             decoration: InputDecoration(
-                                hintText: "Amount",
-                                border: InputBorder.none),
+                                hintText: "Amount", border: InputBorder.none),
                           ),
                         ],
                       ),
                     ),
-           
                   ],
                 ),
                 SizedBox(
                   height: 20,
                 ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                Container(
-                width: (size.width - 140),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
-                      Text(
+                    Container(
+                      width: (size.width - 140),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             "Choose Date From",
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -202,52 +218,45 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
                           ),
                           TextField(
                             controller: dateInput,
-                             decoration: InputDecoration(
-                             icon: Icon(Icons.calendar_today),  
-                               ),
-                              readOnly: true,
-                             onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    lastDate: DateTime(2100));
- 
-                if (pickedDate != null) {
-                  print(
-                      pickedDate); 
-                  String formattedDate =
-                      DateFormat('yyyy-MM-dd').format(pickedDate);
-                  print(
-                      formattedDate); 
-                  setState(() {
-                    dateInput.text =
-                        formattedDate; 
-                  });
-                } else {}
-              },
-                          ),
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.calendar_today),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime(2100));
 
+                              if (pickedDate != null) {
+                                print(pickedDate);
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                print(formattedDate);
+                                setState(() {
+                                  dateInput.text = formattedDate;
+                                });
+                              } else {}
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-
-                ),
-                
-               ],
-               ),
-                 SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                Container(
-                width: (size.width - 140),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
-                      Text(
+                    Container(
+                      width: (size.width - 140),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             "Choose Date To",
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -256,88 +265,96 @@ class _EditMoneyScreenState extends State<EditMoneyScreen> {
                           ),
                           TextField(
                             controller: dateInputFinal,
-                             decoration: InputDecoration(
-                             icon: Icon(Icons.calendar_today),  
-                               ),
-                              readOnly: true,
-                             onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    lastDate: DateTime(2100));
- 
-                if (pickedDate != null) {
-                  print(
-                      pickedDate); 
-                  String formattedDate =
-                      DateFormat('yyyy-MM-dd').format(pickedDate);
-                  print(
-                      formattedDate); 
-                  setState(() {
-                    dateInputFinal.text =
-                        formattedDate; 
-                  });
-                } else {}
-              },
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.calendar_today),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime(2100));
+
+                              if (pickedDate != null) {
+                                print(pickedDate);
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                print(formattedDate);
+                                setState(() {
+                                  dateInputFinal.text = formattedDate;
+                                });
+                              } else {}
+                            },
                           ),
-
-                  ],
-                ),
-
-                ),
-                  SizedBox(
-                      width: 20,
-                    ),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        title: new Text("Do you want to save?", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        actions: <Widget>[
-          ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("Yes", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.LockCurvedNavBarWhiteRoute);
-            },
-          ),
-           ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("No", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.editMoneyLockingRoute);
-            },
-          ),
-        ],
-      );
-    },
-  );
-                    },
-                    child:Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Color(0xFF674AEF),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: white,
+                        ],
                       ),
                     ),
+                    SizedBox(
+                      width: 20,
                     ),
-                
-               ],
-               ),
-
-
+                    InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: Colors.white,
+                              title: new Text(
+                                "Do you want to save?",
+                                style: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF674AEF),
+                                  ),
+                                  child: new Text(
+                                    "Yes",
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 255, 255, 255)),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,
+                                        MyRoutes.LockCurvedNavBarWhiteRoute);
+                                  },
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF674AEF),
+                                  ),
+                                  child: new Text(
+                                    "No",
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 255, 255, 255)),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushNamed(context,
+                                        MyRoutes.editMoneyLockingRoute);
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Color(0xFF674AEF),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           )

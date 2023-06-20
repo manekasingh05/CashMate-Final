@@ -29,19 +29,19 @@ const List daily = [
     "date": "Wed 12:12PM",
     "price": "\- Rs.1200.00"
   },
-    {
+  {
     "icon": "images/icon-3.png",
     "name": "Bank",
     "date": "Fri 10:56AM",
     "price": "\+ Rs.900.00"
   },
-    {
+  {
     "icon": "images/icon-5.png",
     "name": "Eating",
     "date": "Sun 5:00PM",
     "price": "\- Rs.80.00"
   },
-   {
+  {
     "icon": "images/icon-4.png",
     "name": "Shopping",
     "date": "Wed 12:45PM",
@@ -74,7 +74,7 @@ const List weekly = [
     "date": "Sun 2:00PM",
     "price": "\- Rs.690.00"
   },
-    {
+  {
     "icon": "images/icon-5.png",
     "name": "Eating",
     "date": "Sun 3:56PM",
@@ -113,13 +113,12 @@ const List monthly = [
     "date": "Wed 8:43PM",
     "price": "\- Rs.100.00"
   },
-    {
+  {
     "icon": "images/icon-4.png",
     "name": "Shopping",
     "date": "Fri 4:38AM",
     "price": "\+ Rs.1900.00"
   },
-
 ];
 
 const List yearly = [
@@ -153,19 +152,19 @@ const List yearly = [
     "date": "Wed 12:25PM",
     "price": "\- Rs.500.40"
   },
-    {
+  {
     "icon": "images/icon-3.png",
     "name": "Bank",
     "date": "Fri 7:45AM",
     "price": "\+ Rs.790.24"
   },
-    {
+  {
     "icon": "images/icon-1.png",
     "name": "Automobile",
     "date": "Sun 8:34AM",
     "price": "\- Rs.2990.20"
   },
-   {
+  {
     "icon": "images/icon-1.png",
     "name": "Automobile",
     "date": "Wed 1:23PM",

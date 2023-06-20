@@ -53,5 +53,4 @@ class MyRoutes {
   static String Theme3CurvedNavBarWhiteRoute = '/hometheme3';
   static String payListUsersRoute = '/listofusers';
   static String PayWithWalletRoute = '/paywithwallet';
-
 }

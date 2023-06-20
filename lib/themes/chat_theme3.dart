@@ -4,47 +4,44 @@ import 'package:cashmate_vscode/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 class ChatPage_theme3 extends StatefulWidget {
   @override
   _ChatPage_theme3State createState() => _ChatPage_theme3State();
 }
 
 class _ChatPage_theme3State extends State<ChatPage_theme3> {
-
-final Uri phoneLaunchUri = Uri(
-  scheme: 'tel',
-  path: '+91 999 881 999 119',
-);
+  final Uri phoneLaunchUri = Uri(
+    scheme: 'tel',
+    path: '+91 999 881 999 119',
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF674AEF),
       body: Container(
-            decoration: BoxDecoration(
-        image: DecorationImage(
-          image:  AssetImage("images/theme3.jpg"),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/theme3.jpg"),
             fit: BoxFit.cover,
-            ),
-      ),
-        child:SafeArea(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                _topChat(),
-                _bodyChat(),
-                SizedBox(
-                  height: 120,
-                )
-              ],
-            ),
-            _formChat(),
-          ],
+          ),
         ),
-      ),
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  _topChat(),
+                  _bodyChat(),
+                  SizedBox(
+                    height: 120,
+                  )
+                ],
+              ),
+              _formChat(),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -58,7 +55,8 @@ final Uri phoneLaunchUri = Uri(
           Row(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, MyRoutes.selectContactsTheme3Route),
+                onTap: () => Navigator.pushNamed(
+                    context, MyRoutes.selectContactsTheme3Route),
                 child: Icon(
                   Icons.arrow_back_ios,
                   size: 25,
@@ -80,36 +78,33 @@ final Uri phoneLaunchUri = Uri(
                 onTap: () {
                   launchUrl(phoneLaunchUri);
                 },
-                child:Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.black12,
+                child: Container(
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.black12,
+                  ),
+                  child: Icon(
+                    Icons.call,
+                    size: 25,
+                    color: Colors.white,
+                  ),
                 ),
-                child: Icon(
-                  Icons.call,
-                  size: 25,
-                  color: Colors.white,
-                ),
-              ),),
+              ),
               SizedBox(
                 width: 20,
               ),
               InkWell(
-                onTap: () {
-
-                }, 
+                onTap: () {},
                 child: Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.black12,
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.black12,
+                  ),
+                  child: buildOption(context, ""),
                 ),
-                child: buildOption(
-                  context, ""),
               ),
-              ),
-
             ],
           )
         ],
@@ -195,7 +190,9 @@ final Uri phoneLaunchUri = Uri(
             margin: EdgeInsets.only(left: 10, right: 10, top: 20),
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: chat == 0 ? Colors.deepPurple.shade100 : Colors.deepPurple.shade50,
+              color: chat == 0
+                  ? Colors.deepPurple.shade100
+                  : Colors.deepPurple.shade50,
               borderRadius: chat == 0
                   ? BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -262,81 +259,73 @@ final Uri phoneLaunchUri = Uri(
     );
   }
 
-  GestureDetector buildOption(BuildContext context,String title)
-  { return  GestureDetector(
-    onTap: (){
-showDialog(context: context, builder: (BuildContext context){
-  return AlertDialog(
-    title: Text(title),
-    content: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, MyRoutes.askMoneyRoute);
-          },
-        child:Row(
-        children: [
-        Icon(Icons.money,color:Color(0xFF674AEF)),
-        SizedBox(width: 10),
-        Text("Ask Money Back",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold
-        ),),
-        ],
-        ),
-        ),
-        SizedBox(height: 30),
-         Divider(),
-         SizedBox(height: 30),
-        Row(children: [
-         Icon(Icons.send_to_mobile,color:Color(0xFF674AEF)),
-         SizedBox(width: 10),
-        Text("Send Money",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold
-          ),
-        ),
-        ],
-        ),
-       
-      ],
-    ),
-    actions: [
-      TextButton(
-        onPressed: () {
-Navigator.of(context).pop();
-        }, 
-        child: Text("Close")
-        )
-    ],
-
-  );
-}
-  );
-    },
-      child: Row( 
+  GestureDetector buildOption(BuildContext context, String title) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(title),
+                content: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, MyRoutes.askMoneyRoute);
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.money, color: Color(0xFF674AEF)),
+                          SizedBox(width: 10),
+                          Text(
+                            "Ask Money Back",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    Divider(),
+                    SizedBox(height: 30),
+                    Row(
+                      children: [
+                        Icon(Icons.send_to_mobile, color: Color(0xFF674AEF)),
+                        SizedBox(width: 10),
+                        Text(
+                          "Send Money",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("Close"))
+                ],
+              );
+            });
+      },
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            color: const Color.fromARGB(255, 255, 255, 255)
-          )),
-          Icon(Icons.read_more,color:const Color.fromARGB(255, 255, 255, 255))
-
-      ],
+          Text(title,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: const Color.fromARGB(255, 255, 255, 255))),
+          Icon(Icons.read_more, color: const Color.fromARGB(255, 255, 255, 255))
+        ],
       ),
-  );
-
+    );
   }
-
-
-
-
 }
 
 class Avatar extends StatelessWidget {

@@ -12,105 +12,95 @@ class OTPScreen extends StatefulWidget {
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-
-   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
   String? _verificationCode;
   final TextEditingController _pinPutController = TextEditingController();
 
   final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
-      textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(30, 60, 87, 1), fontWeight: FontWeight.w600),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
+    width: 56,
+    height: 56,
+    textStyle: TextStyle(
+        fontSize: 20,
+        color: Color.fromRGBO(30, 60, 87, 1),
+        fontWeight: FontWeight.w600),
+    decoration: BoxDecoration(
+      border: Border.all(color: Colors.black),
+      borderRadius: BorderRadius.circular(20),
+    ),
+  );
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Color(0xFF674AEF),
         title: Text('OTP Verification'),
       ),
-      body: Column(
-        children: [
-       Container(
-        margin: EdgeInsets.only(top: 40),
-        child: Center(
-          child:Column(
-            children: [
-              Text(
-                'OTP Sent Successfully to',
-                style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w300
+      body: Column(children: [
+        Container(
+          margin: EdgeInsets.only(top: 40),
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  'OTP Sent Successfully to',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
                 ),
-              ),
-              Text(
-                '+91-${widget.phone}',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
+                Text(
+                  '+91-${widget.phone}',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-              ),
-            ],
-          ),
-        ),
-       ),
-        Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Pinput(
-              length: 6,
-              defaultPinTheme: defaultPinTheme,
-             
-              controller: _pinPutController,
-           
-              pinAnimationType: PinAnimationType.fade,
-              onSubmitted: (pin) async {
-                try {
-                  await FirebaseAuth.instance
-                      .signInWithCredential(PhoneAuthProvider.credential(
-                          verificationId: _verificationCode!, smsCode: pin))
-                      .then((value) async {
-                    if (value.user != null) {
-                  QuickAlert.show(
-                  context: context,
-                  type: QuickAlertType.success,
-                   text: 'Logged In Successfully!',
-                   confirmBtnColor: Color(0xFF674AEF),
-                   onConfirmBtnTap: () {
-                     Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => addBank()),
-                          (route) => false);
-                   },
-                   ); 
-                    }
-                  });
-                } catch (e) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-                 
-                }
-              },
+              ],
             ),
           ),
-
-          Text('Did not Receive OTP? Send Again',
+        ),
+        Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Pinput(
+            length: 6,
+            defaultPinTheme: defaultPinTheme,
+            controller: _pinPutController,
+            pinAnimationType: PinAnimationType.fade,
+            onSubmitted: (pin) async {
+              try {
+                await FirebaseAuth.instance
+                    .signInWithCredential(PhoneAuthProvider.credential(
+                        verificationId: _verificationCode!, smsCode: pin))
+                    .then((value) async {
+                  if (value.user != null) {
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Logged In Successfully!',
+                      confirmBtnColor: Color(0xFF674AEF),
+                      onConfirmBtnTap: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => addBank()),
+                            (route) => false);
+                      },
+                    );
+                  }
+                });
+              } catch (e) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(e.toString())));
+              }
+            },
+          ),
+        ),
+        Text(
+          'Did not Receive OTP? Send Again',
           style: TextStyle(
-           color: Color(0xFF674AEF),
-           fontSize: 15,
-           fontWeight: FontWeight.bold
-          ),
-          ),
-      ]
-      ),
-
+              color: Color(0xFF674AEF),
+              fontSize: 15,
+              fontWeight: FontWeight.bold),
+        ),
+      ]),
     );
   }
 
-   _verifyPhone() async {
+  _verifyPhone() async {
     await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: '+91${widget.phone}',
         verificationCompleted: (PhoneAuthCredential credential) async {
@@ -141,11 +131,10 @@ class _OTPScreenState extends State<OTPScreen> {
         timeout: Duration(seconds: 120));
   }
 
- @override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _verifyPhone();
   }
-
 }

@@ -7,20 +7,18 @@ import 'package:intl/intl.dart';
 import 'package:cashmate_vscode/pages/budgetPlanner.dart';
 
 class CreatBudgetPage extends StatefulWidget {
-
-
   @override
   _CreatBudgetPageState createState() => _CreatBudgetPageState();
 }
 
 class _CreatBudgetPageState extends State<CreatBudgetPage> {
   int activeCategory = 0;
-   TextEditingController dateInput = TextEditingController();
-   TextEditingController dateInputFinal = TextEditingController();
+  TextEditingController dateInput = TextEditingController();
+  TextEditingController dateInputFinal = TextEditingController();
   TextEditingController _budgetName = TextEditingController();
   TextEditingController _budgetPrice = TextEditingController();
 
- @override
+  @override
   void initState() {
     dateInput.text = 'Today';
     dateInputFinal.text = 'Tommorow';
@@ -67,45 +65,64 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                       ),
                       Row(
                         children: [
-                        InkWell(
-                        onTap: () {
-                        showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        title: new Text("Do you want to cancel?", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        actions: <Widget>[
-          ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("Yes", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.budgetPlannerRoute);
-            },
-          ),
-           ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("No", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.createBudgetRoute);
-            },
-          ),
-        ],
-      );
-    },
-  );
-                        },
-                        child: Text("Cancel",
-                        style: TextStyle(
-                        color: Color(0xFF674AEF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        ),
-                        ),),
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    backgroundColor: Colors.white,
+                                    title: new Text(
+                                      "Do you want to cancel?",
+                                      style: TextStyle(
+                                          color: const Color.fromARGB(
+                                              255, 0, 0, 0)),
+                                    ),
+                                    actions: <Widget>[
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFF674AEF),
+                                        ),
+                                        child: new Text(
+                                          "Yes",
+                                          style: TextStyle(
+                                              color: const Color.fromARGB(
+                                                  255, 255, 255, 255)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushNamed(context,
+                                              MyRoutes.budgetPlannerRoute);
+                                        },
+                                      ),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFF674AEF),
+                                        ),
+                                        child: new Text(
+                                          "No",
+                                          style: TextStyle(
+                                              color: const Color.fromARGB(
+                                                  255, 255, 255, 255)),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pushNamed(context,
+                                              MyRoutes.createBudgetRoute);
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                color: Color(0xFF674AEF),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
                         ],
                       )
                     ],
@@ -148,9 +165,8 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                     width: 150,
                     height: 170,
                     decoration: BoxDecoration(
-                          color: activeCategory == index
-                                ? Color(0xFF674AEF)
-                                : grey,
+                        color:
+                            activeCategory == index ? Color(0xFF674AEF) : grey,
                         border: Border.all(
                             width: 2,
                             color: activeCategory == index
@@ -176,8 +192,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                               width: 40,
                               height: 40,
                               decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white),
+                                  shape: BoxShape.circle, color: Colors.white),
                               child: Center(
                                 child: Image.asset(
                                   categories[index]['icon'],
@@ -189,12 +204,11 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                           Text(
                             categories[index]['name'],
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: activeCategory == index
-                                ? Colors.white
-                                : Colors.black
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: activeCategory == index
+                                    ? Colors.white
+                                    : Colors.black),
                           )
                         ],
                       ),
@@ -259,22 +273,20 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                         ],
                       ),
                     ),
-           
                   ],
                 ),
                 SizedBox(
                   height: 20,
                 ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                Container(
-                width: (size.width - 140),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
-                      Text(
+                    Container(
+                      width: (size.width - 140),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             "Choose Date From",
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -283,52 +295,45 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                           ),
                           TextField(
                             controller: dateInput,
-                             decoration: InputDecoration(
-                             icon: Icon(Icons.calendar_today),  
-                               ),
-                              readOnly: true,
-                             onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    lastDate: DateTime(2100));
- 
-                if (pickedDate != null) {
-                  print(
-                      pickedDate); 
-                  String formattedDate =
-                      DateFormat('yyyy-MM-dd').format(pickedDate);
-                  print(
-                      formattedDate); 
-                  setState(() {
-                    dateInput.text =
-                        formattedDate; 
-                  });
-                } else {}
-              },
-                          ),
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.calendar_today),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime(2100));
 
+                              if (pickedDate != null) {
+                                print(pickedDate);
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                print(formattedDate);
+                                setState(() {
+                                  dateInput.text = formattedDate;
+                                });
+                              } else {}
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-
-                ),
-                
-               ],
-               ),
-                 SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                Container(
-                width: (size.width - 140),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
-                      Text(
+                    Container(
+                      width: (size.width - 140),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             "Choose Date To",
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -337,96 +342,105 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                           ),
                           TextField(
                             controller: dateInputFinal,
-                             decoration: InputDecoration(
-                             icon: Icon(Icons.calendar_today),  
-                               ),
-                              readOnly: true,
-                             onTap: () async {
-                            DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(1950),
-                    lastDate: DateTime(2100));
- 
-                if (pickedDate != null) {
-                  print(
-                      pickedDate); 
-                  String formattedDate =
-                      DateFormat('yyyy-MM-dd').format(pickedDate);
-                  print(
-                      formattedDate); 
-                  setState(() {
-                    dateInputFinal.text =
-                        formattedDate; 
-                  });
-                } else {}
-              },
+                            decoration: InputDecoration(
+                              icon: Icon(Icons.calendar_today),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(1950),
+                                  lastDate: DateTime(2100));
+
+                              if (pickedDate != null) {
+                                print(pickedDate);
+                                String formattedDate =
+                                    DateFormat('yyyy-MM-dd').format(pickedDate);
+                                print(formattedDate);
+                                setState(() {
+                                  dateInputFinal.text = formattedDate;
+                                });
+                              } else {}
+                            },
                           ),
-
-                  ],
-                ),
-
-                ),
-                  SizedBox(
-                      width: 20,
-                    ),
-                  InkWell(
-                    onTap: () {
-                      showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        title: new Text("Do you want to save?", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        actions: <Widget>[
-          ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("Yes", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-
-              String name = _budgetName.text.trim();
-              String price = _budgetPrice.text.trim();
-              if(name.isNotEmpty && price.isNotEmpty){
-                setState(() {
-                  BudgetPage.budgets.add(Budget(budgetName: name, budgetAmount: price));
-                  Navigator.pushNamed(context, MyRoutes.budgetPlannerRoute);
-                });
-              }
-            },
-          ),
-           ElevatedButton(
-             style: ElevatedButton.styleFrom(
-             backgroundColor: Color(0xFF674AEF), 
-              ),
-            child: new Text("No", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.createBudgetRoute);
-            },
-          ),
-        ],
-      );
-    },
-  );
-                    },
-                    child:Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Color(0xFF674AEF),
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: white,
+                        ],
                       ),
                     ),
+                    SizedBox(
+                      width: 20,
                     ),
-                
-               ],
-               ),
-
-
+                    InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: Colors.white,
+                              title: new Text(
+                                "Do you want to save?",
+                                style: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF674AEF),
+                                  ),
+                                  child: new Text(
+                                    "Yes",
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 255, 255, 255)),
+                                  ),
+                                  onPressed: () {
+                                    String name = _budgetName.text.trim();
+                                    String price = _budgetPrice.text.trim();
+                                    if (name.isNotEmpty && price.isNotEmpty) {
+                                      setState(() {
+                                        BudgetPage.budgets.add(Budget(
+                                            budgetName: name,
+                                            budgetAmount: price));
+                                        Navigator.pushNamed(context,
+                                            MyRoutes.budgetPlannerRoute);
+                                      });
+                                    }
+                                  },
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF674AEF),
+                                  ),
+                                  child: new Text(
+                                    "No",
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 255, 255, 255)),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, MyRoutes.createBudgetRoute);
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Color(0xFF674AEF),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           )

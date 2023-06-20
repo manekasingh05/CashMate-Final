@@ -22,7 +22,8 @@ class CurrencyInfo {
     return CurrencyInfo(
       marketPrice: MarketPrice.fromJson(json['regularMarketPrice']),
       marketChange: MarketChange.fromJson(json['regularMarketChange']),
-      marketChangePercent: MarketChangePercent.fromJson(json['regularMarketChangePercent']),
+      marketChangePercent:
+          MarketChangePercent.fromJson(json['regularMarketChangePercent']),
       regularMarketTime: json['regularMarketTime'],
       shorName: json['shortName'],
       currencySymbol: json['currencySymbol'],

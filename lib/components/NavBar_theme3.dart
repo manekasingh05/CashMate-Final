@@ -5,9 +5,8 @@ import 'package:cashmate_vscode/pages/registerPage.dart';
 import 'package:quickalert/quickalert.dart';
 
 class NavBartheme3 extends StatelessWidget {
-
-final myusername = MyRegister.myUsername;
-final myemail = MyRegister.myEmail;
+  final myusername = MyRegister.myUsername;
+  final myemail = MyRegister.myEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +31,7 @@ final myemail = MyRegister.myEmail;
             decoration: BoxDecoration(
               color: const Color(0xFF674AEF),
               image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                      'images/theme3.jpg')),
+                  fit: BoxFit.cover, image: AssetImage('images/theme3.jpg')),
             ),
           ),
           ListTile(
@@ -90,7 +87,7 @@ final myemail = MyRegister.myEmail;
             leading: Icon(Icons.language),
             title: Text('Language'),
             onTap: () {
-               Navigator.pushNamed(context, MyRoutes.settingsTheme3Route);
+              Navigator.pushNamed(context, MyRoutes.settingsTheme3Route);
             },
           ),
           ListTile(
@@ -98,29 +95,42 @@ final myemail = MyRegister.myEmail;
             title: Text('Logout'),
             leading: Icon(Icons.exit_to_app),
             onTap: () {
-                   showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        title: new Text("Do you want to logout?", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),),
-        actions: <Widget>[
-          ElevatedButton(
-            child: new Text("Yes", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.loginRoute);
-            },
-          ),
-           ElevatedButton(
-            child: new Text("No", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.homePageTheme3Route);
-            },
-          ),
-        ],
-      );
-    },
-  );
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    backgroundColor: Colors.white,
+                    title: new Text(
+                      "Do you want to logout?",
+                      style:
+                          TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                    ),
+                    actions: <Widget>[
+                      ElevatedButton(
+                        child: new Text(
+                          "Yes",
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 255, 255, 255)),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.loginRoute);
+                        },
+                      ),
+                      ElevatedButton(
+                        child: new Text(
+                          "No",
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 255, 255, 255)),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, MyRoutes.homePageTheme3Route);
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
             },
           ),
         ],

@@ -49,7 +49,6 @@ const List budget_json_monthly = [
     "percentage": 0.45,
     "color": green
   }
-
 ];
 
 const List budget_json_yearly = [

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cashmate_vscode/utils/routes.dart';
 
 class CardPage extends StatefulWidget {
-
   const CardPage({Key? key}) : super(key: key);
 
   @override
@@ -10,7 +9,6 @@ class CardPage extends StatefulWidget {
 }
 
 class _CardPageState extends State<CardPage> {
-
   String name = 'Your Name';
   String card1 = '- - - -';
   String card2 = '- - - -';
@@ -74,7 +72,7 @@ class _CardPageState extends State<CardPage> {
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: Scaffold(
+        child: Scaffold(
       backgroundColor: Colors.grey[100],
       body: Container(
           height: myHeight,
@@ -174,17 +172,17 @@ class _CardPageState extends State<CardPage> {
                                       },
                                       controller: nameController,
                                       decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          icon: Image.asset(
-                                            'images/6.png',
-                                            height: myHeight * 0.025,
-                                            color: Color(0xff7847FC),
-                                          ),
-                                          hintText: 'Please Enter Your Name',
-                                          hintStyle: TextStyle(
-                                              color: Colors.grey.shade400,
-                                              fontSize: 14),
-                                              ),
+                                        border: InputBorder.none,
+                                        icon: Image.asset(
+                                          'images/6.png',
+                                          height: myHeight * 0.025,
+                                          color: Color(0xff7847FC),
+                                        ),
+                                        hintText: 'Please Enter Your Name',
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey.shade400,
+                                            fontSize: 14),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -477,18 +475,18 @@ class _CardPageState extends State<CardPage> {
                     Navigator.pushNamed(context, MyRoutes.cardsRoute);
                   },
                   child: Container(
-                  padding: EdgeInsets.symmetric(vertical: myHeight * 0.02),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff7847FC),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Add Card',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    padding: EdgeInsets.symmetric(vertical: myHeight * 0.02),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xff7847FC),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Add Card',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                     ),
                   ),
-                ),
                 ),
               )
             ],
@@ -551,4 +549,3 @@ class _CardPageState extends State<CardPage> {
     );
   }
 }
-

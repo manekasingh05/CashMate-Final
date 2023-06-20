@@ -17,7 +17,6 @@ class MyBird extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 3 / 4 * birdheight / 1.5,
         fit: BoxFit.fill,
       ),
-
     );
   }
 }

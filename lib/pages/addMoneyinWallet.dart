@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cashmate_vscode/Widgets/Widgets.dart';
 import 'package:cashmate_vscode/pages/loginPage.dart';
 
-
 class SendMoneyPage extends StatefulWidget {
-
-
   const SendMoneyPage({Key? key}) : super(key: key);
 
   @override
@@ -16,15 +13,10 @@ class SendMoneyPage extends StatefulWidget {
 }
 
 class _SendMoneyPageState extends State<SendMoneyPage> {
-
-  
-
   final myusername = MyRegister.myUsername;
   List numberAsList = [];
 
   String money = '0';
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,50 +57,48 @@ class _SendMoneyPageState extends State<SendMoneyPage> {
         backgroundImage: AssetImage("images/profile.jpg"),
       ),
       title: Text(
-         "${myusername.text}",
-         style: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
+        "${myusername.text}",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
   }
 
-
   Widget moneyWidget() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 28),
       child: RichText(
-        
 //Rs
         text: TextSpan(
-        text: '\Rs. ',
-        style: TextStyle(
-          fontSize: 60,
-          color: Colors.grey.withOpacity(0.5),
-          fontWeight: FontWeight.w300,
-        ),
-        children: [
-//20
-          TextSpan(
-            text: money,
-            style: TextStyle(
-              fontSize: 60,
-              color: Colors.white,
-              fontWeight: FontWeight.w400,
-            ),
+          text: '\Rs. ',
+          style: TextStyle(
+            fontSize: 60,
+            color: Colors.grey.withOpacity(0.5),
+            fontWeight: FontWeight.w300,
           ),
-//.0
-          if (money != '')
+          children: [
+//20
             TextSpan(
-                text: '.0',
-                style: TextStyle(
-                  fontSize: 60,
-                  color: Colors.grey.withOpacity(0.5),
-                  fontWeight: FontWeight.w300,
-                )),
-        ],
-      ),
+              text: money,
+              style: TextStyle(
+                fontSize: 60,
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+//.0
+            if (money != '')
+              TextSpan(
+                  text: '.0',
+                  style: TextStyle(
+                    fontSize: 60,
+                    color: Colors.grey.withOpacity(0.5),
+                    fontWeight: FontWeight.w300,
+                  )),
+          ],
+        ),
       ),
     );
   }
@@ -134,7 +124,8 @@ class _SendMoneyPageState extends State<SendMoneyPage> {
             onTap: () {
               if (index == 11) {
                 try {
-                  setState(() => money = money.replaceRange(money.length - 1, money.length, ''));
+                  setState(() => money =
+                      money.replaceRange(money.length - 1, money.length, ''));
                 } catch (e) {
                   print("Error removing $e");
                 }
@@ -165,26 +156,26 @@ class _SendMoneyPageState extends State<SendMoneyPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
       child: InkWell(
-      onTap: () {
-      Navigator.pushNamed(context, MyRoutes.CurvedNavBarWhiteRoute);
-         }, 
+        onTap: () {
+          Navigator.pushNamed(context, MyRoutes.CurvedNavBarWhiteRoute);
+        },
         child: Container(
-        height: 55,
-        width: double.maxFinite,
-        alignment: Alignment.center,
-        child: Text(
-          "Add",
-          style : TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-          fontSize: 18,
+          height: 55,
+          width: double.maxFinite,
+          alignment: Alignment.center,
+          child: Text(
+            "Add",
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontSize: 18,
+            ),
+          ),
+          decoration: BoxDecoration(
+            color: Color(0xFF674AEF),
+            borderRadius: BorderRadius.circular(8),
           ),
         ),
-        decoration: BoxDecoration(
-          color: Color(0xFF674AEF),
-          borderRadius: BorderRadius.circular(8),
-        ),
-      ),
       ),
     );
   }

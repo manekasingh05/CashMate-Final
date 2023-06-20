@@ -47,30 +47,29 @@ class TransactionSuccessView extends GetView<TransactionSuccessController> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () {
-                  
-                },
+                onTap: () {},
                 child: InkWell(
-                onTap: () {
-                     Navigator.pushNamed(context, MyRoutes.addMoneyinWalletRoute);
-                },
-                 child: Container(
-                  height: 55,
-                  width: Get.width * 0.8,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    'Finish',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xFF674AEF),
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, MyRoutes.addMoneyinWalletRoute);
+                  },
+                  child: Container(
+                    height: 55,
+                    width: Get.width * 0.8,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      'Finish',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Color(0xFF674AEF),
+                      ),
                     ),
                   ),
-                ),
                 ),
               )
             ],

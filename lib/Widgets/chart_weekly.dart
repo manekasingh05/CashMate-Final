@@ -5,7 +5,8 @@ class ExpenseGraphDesign_weekly extends StatefulWidget {
   const ExpenseGraphDesign_weekly({Key? key}) : super(key: key);
 
   @override
-  State<ExpenseGraphDesign_weekly> createState() => _ExpenseGraphDesign_weeklyState();
+  State<ExpenseGraphDesign_weekly> createState() =>
+      _ExpenseGraphDesign_weeklyState();
 }
 
 class _ExpenseGraphDesign_weeklyState extends State<ExpenseGraphDesign_weekly> {
@@ -106,7 +107,7 @@ class _ExpenseGraphDesign_weeklyState extends State<ExpenseGraphDesign_weekly> {
                       case 8:
                         text = "20 July";
                         break;
-                    
+
                       default:
                         return Container();
                     }

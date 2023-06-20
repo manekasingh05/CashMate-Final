@@ -5,10 +5,12 @@ class ExpenseGraphDesign_monthly extends StatefulWidget {
   const ExpenseGraphDesign_monthly({Key? key}) : super(key: key);
 
   @override
-  State<ExpenseGraphDesign_monthly> createState() => _ExpenseGraphDesign_monthlyState();
+  State<ExpenseGraphDesign_monthly> createState() =>
+      _ExpenseGraphDesign_monthlyState();
 }
 
-class _ExpenseGraphDesign_monthlyState extends State<ExpenseGraphDesign_monthly> {
+class _ExpenseGraphDesign_monthlyState
+    extends State<ExpenseGraphDesign_monthly> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -120,7 +122,7 @@ class _ExpenseGraphDesign_monthlyState extends State<ExpenseGraphDesign_monthly>
                       case 12:
                         text = "Dec";
                         break;
-                    
+
                       default:
                         return Container();
                     }

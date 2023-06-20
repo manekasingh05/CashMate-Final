@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:cashmate_vscode/pages/paint_tool.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class MyRegister extends StatefulWidget {
   static var myEmail = TextEditingController();
   static var myUsername = TextEditingController();
   static var password = TextEditingController();
   static TextEditingController phoneNumber = TextEditingController();
- 
+
   const MyRegister({Key? key}) : super(key: key);
 
   @override
@@ -17,11 +16,10 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
-
-final Myemail = MyRegister.myEmail;
-final username = MyRegister.myUsername;
-final pass = MyRegister.password;
-final phoneNum = MyRegister.phoneNumber;
+  final Myemail = MyRegister.myEmail;
+  final username = MyRegister.myUsername;
+  final pass = MyRegister.password;
+  final phoneNum = MyRegister.phoneNumber;
 
   @override
   void dispose() {
@@ -45,33 +43,30 @@ final phoneNum = MyRegister.phoneNumber;
           children: [
             Container(
               padding: EdgeInsets.only(left: 35),
-              child:Column(children:[
-                CustomPaint(
-                  painter:Painter()),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                 margin: EdgeInsets.only(bottom: 45.0),     
-               child: Text(
-                'Create\nAccount',
-                style: TextStyle(
-                  color: Colors.white, 
-                  fontSize: 33,
-                  fontWeight: FontWeight.bold,
-                  ),
-              
-              ),
+              child: Column(children: [
+                CustomPaint(painter: Painter()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 45.0),
+                      child: Text(
+                        'Create\nAccount',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 33,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Image.asset(
+                      'images/signup.png',
+                      fit: BoxFit.contain,
+                      width: 200,
+                      height: 200,
+                    ),
+                  ],
                 ),
-              Image.asset('images/signup.png',
-              fit:BoxFit.contain,
-              width: 200,
-              height: 200,
-              ),
-                
-
-              ],
-            ),
               ]),
             ),
             SingleChildScrollView(
@@ -89,7 +84,7 @@ final phoneNum = MyRegister.phoneNumber;
                             controller: username,
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
-                               fillColor: Colors.white,
+                                fillColor: Colors.white,
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -103,7 +98,8 @@ final phoneNum = MyRegister.phoneNumber;
                                   ),
                                 ),
                                 hintText: "username",
-                                hintStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                                hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -128,11 +124,11 @@ final phoneNum = MyRegister.phoneNumber;
                                   ),
                                 ),
                                 hintText: "password",
-                                hintStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                                hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
-                                
                           ),
                           SizedBox(
                             height: 30,
@@ -155,12 +151,13 @@ final phoneNum = MyRegister.phoneNumber;
                                   ),
                                 ),
                                 hintText: "Email",
-                                hintStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                                hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                           ),
-                           SizedBox(
+                          SizedBox(
                             height: 30,
                           ),
                           TextField(
@@ -186,54 +183,55 @@ final phoneNum = MyRegister.phoneNumber;
                                   padding: EdgeInsets.all(4),
                                   child: Text('+91'),
                                 ),
-                                hintStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                                hintStyle: TextStyle(
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
-                                
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                      
                           Row(
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.height * 0.1),
+                                    left: MediaQuery.of(context).size.height *
+                                        0.1),
                                 child: Material(
-                color: Color(0xFF674AEF),
-                borderRadius: BorderRadius.circular(10),
-                shadowColor: Color.fromARGB(67, 66, 66, 66),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, MyRoutes.loginRoute);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15, horizontal: 80
-                    ),
-                    child: Text("Sign Up",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                    ),
-                    ),
-                  ),
-                ),
-              ), 
+                                  color: Color(0xFF674AEF),
+                                  borderRadius: BorderRadius.circular(10),
+                                  shadowColor: Color.fromARGB(67, 66, 66, 66),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, MyRoutes.loginRoute);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 15, horizontal: 80),
+                                      child: Text(
+                                        "Sign Up",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
-                              
                             ],
                           ),
-                             Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               TextButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, MyRoutes.loginRoute);
+                                    Navigator.pushNamed(
+                                        context, MyRoutes.loginRoute);
                                   },
                                   child: Text(
                                     'Already Have Account? Login',

@@ -106,7 +106,7 @@ class _ExpenseGraphDesignState extends State<ExpenseGraphDesign> {
                       case 8:
                         text = "Sun";
                         break;
-                    
+
                       default:
                         return Container();
                     }

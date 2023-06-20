@@ -5,20 +5,16 @@ import 'dart:io';
 import 'dart:ui';
 
 class NotificationService {
-
-
   final FlutterLocalNotificationsPlugin notificationsPlugin =
       FlutterLocalNotificationsPlugin();
-
-      
 
   Future<void> initNotification() async {
     AndroidInitializationSettings initializationSettingsAndroid =
         const AndroidInitializationSettings('@drawable/ic_stat_android');
 
-        var details = await NotificationService().notificationsPlugin
-    .getNotificationAppLaunchDetails();
-
+    var details = await NotificationService()
+        .notificationsPlugin
+        .getNotificationAppLaunchDetails();
 
     var initializationSettingsIOS = DarwinInitializationSettings(
         requestAlertPermission: true,
@@ -35,34 +31,33 @@ class NotificationService {
   }
 
   notificationDetails() async {
-  
-  final largeIconPath = await Utils.getImageFilePathFromAssets(
-    'images/profile.png', 'largeIcon');
+    final largeIconPath = await Utils.getImageFilePathFromAssets(
+        'images/profile.png', 'largeIcon');
 
-   final bigPicturePath = await Utils.getImageFilePathFromAssets(
-    'images/meme_1.png', 'bigPicture');
+    final bigPicturePath = await Utils.getImageFilePathFromAssets(
+        'images/meme_1.png', 'bigPicture');
 
-       final BigPictureStyleInformation bigPictureStyleInformation =
+    final BigPictureStyleInformation bigPictureStyleInformation =
         BigPictureStyleInformation(FilePathAndroidBitmap(bigPicturePath),
             largeIcon: FilePathAndroidBitmap(largeIconPath));
 
     return NotificationDetails(
-        android: AndroidNotificationDetails('channelId', 'channelName',
-            importance: Importance.high,
-            styleInformation: bigPictureStyleInformation,
-            ),
+        android: AndroidNotificationDetails(
+          'channelId',
+          'channelName',
+          importance: Importance.high,
+          styleInformation: bigPictureStyleInformation,
+        ),
         iOS: DarwinNotificationDetails());
   }
 
   Future showNotification(
       {int id = 0, String? title, String? body, String? payLoad}) async {
     return notificationsPlugin.show(
-        id, title, body, await notificationDetails(),
-        
-        );
+      id,
+      title,
+      body,
+      await notificationDetails(),
+    );
   }
-  
 }
-
-
-

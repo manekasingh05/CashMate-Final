@@ -5,7 +5,8 @@ class ExpenseGraphDesign_yearly extends StatefulWidget {
   const ExpenseGraphDesign_yearly({Key? key}) : super(key: key);
 
   @override
-  State<ExpenseGraphDesign_yearly> createState() => _ExpenseGraphDesign_yearlyState();
+  State<ExpenseGraphDesign_yearly> createState() =>
+      _ExpenseGraphDesign_yearlyState();
 }
 
 class _ExpenseGraphDesign_yearlyState extends State<ExpenseGraphDesign_yearly> {
@@ -106,7 +107,7 @@ class _ExpenseGraphDesign_yearlyState extends State<ExpenseGraphDesign_yearly> {
                       case 8:
                         text = "2021";
                         break;
-                    
+
                       default:
                         return Container();
                     }

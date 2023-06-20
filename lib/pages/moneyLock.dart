@@ -15,10 +15,9 @@ class moneyLock extends StatefulWidget {
 }
 
 class _moneyLockState extends State<moneyLock> {
-
   var height, width;
   String currentDate = DateFormat.yMMMd('en_US').format(DateTime.now());
- final myusername = MyRegister.myUsername;
+  final myusername = MyRegister.myUsername;
 
   bool isDrawerOpen = false;
   bool _isIncome = false;
@@ -31,11 +30,8 @@ class _moneyLockState extends State<moneyLock> {
   var percent = 26;
   var days_percent = 50;
 
-
   static const Color _primaryColor = Color(0xFF674AEF);
   static const Color _secondaryColor = Color.fromARGB(255, 211, 195, 47);
-
- 
 
   /// **********************************************
   /// LIFE CYCLE METHODS
@@ -46,8 +42,10 @@ class _moneyLockState extends State<moneyLock> {
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
-       floatingActionButton: Image.asset("images/cartoon-1.png",
-       width: 90,),
+      floatingActionButton: Image.asset(
+        "images/cartoon-1.png",
+        width: 90,
+      ),
       appBar: _buildAppBar(),
       body: Container(
         color: Colors.grey.shade300,
@@ -69,191 +67,179 @@ class _moneyLockState extends State<moneyLock> {
   /// App Bar
   AppBar _buildAppBar() {
     return AppBar(
-     elevation: 0,
-         backgroundColor: Color(0xFF674AEF),
-         centerTitle: false,
-         title: SingleChildScrollView(
-          child:Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+      elevation: 0,
+      backgroundColor: Color(0xFF674AEF),
+      centerTitle: false,
+      title: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
+              child: Container(
+                height: 39,
+                width: width * 0.12,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(17),
+                  color: Colors.white,
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    "images/profile.jpg",
+                    height: height * 0.05,
+                  ),
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                Text(
+                  "Welcome, ${myusername.text}",
+                  style: GoogleFonts.lexend(
+                    fontSize: width * 0.042,
+                  ),
+                ),
                 Padding(
-               padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.0),
-               child: Container(
-                   height: 39,
-                   width: width * 0.12,
-                   decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(17),
-                         color: Colors.white,
-                         ),
-                          child: Align(
-                           alignment: Alignment.center,
-                           child: Image.asset("images/profile.jpg",
-                           height : height * 0.05,
-                                ),
-                              ),
-                            ),
-                            ),
-        Column(
-          children: [
-          Text("Welcome, ${myusername.text}",
-          style: GoogleFonts.lexend(
-          fontSize: width * 0.042,
-          ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 90.0),
-            child: Text("${currentDate}",
-              style: GoogleFonts.lexend(
-              fontSize: width * 0.032,
-              fontWeight: FontWeight.w200,
-              color: Colors.yellow,
-               ),
-           ),
-          ),
-          ],
-         ),
+                  padding: const EdgeInsets.only(right: 90.0),
+                  child: Text(
+                    "${currentDate}",
+                    style: GoogleFonts.lexend(
+                      fontSize: width * 0.032,
+                      fontWeight: FontWeight.w200,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 30.0),
-              child: 
-              IconButton(
-                 icon: Icon(Icons.add,
-                 size: 30,
-                 color: const Color.fromARGB(255, 211, 195, 47),
-                 ),
-                 onPressed: () {
+              child: IconButton(
+                icon: Icon(
+                  Icons.add,
+                  size: 30,
+                  color: const Color.fromARGB(255, 211, 195, 47),
+                ),
+                onPressed: () {
                   Navigator.pushNamed(context, MyRoutes.editMoneyLockingRoute);
-                 },
+                },
               ),
-           
-            ),   
-         ],
-         ),
-         ),
-       
+            ),
+          ],
+        ),
+      ),
     );
   }
 
-   void toggleSwitch(bool isSwitched) {  
-  
-    if(value == false)  
-    {  
-      setState(() {  
-        value = true;  
+  void toggleSwitch(bool isSwitched) {
+    if (value == false) {
+      setState(() {
+        value = true;
         textValue = TextEditingController(text: '0');
-        token = '0'; 
+        token = '0';
         days = '0';
         percent = 0;
         days_percent = 0;
         rate = '0';
-      });  
-      
-    }  
-    else  
-    {  
-      setState(() {  
-        value = false;  
-        textValue = textValue; 
+      });
+    } else {
+      setState(() {
+        value = false;
+        textValue = textValue;
         token = token;
         days = days;
         percent = percent;
         days_percent = days_percent;
         rate = rate;
-      });  
-      
-    }  
+      });
     }
+  }
 
   /// App Bar Bottom Section
   Card _appBarBottomSection() {
     return Card(
       color: Color.fromARGB(255, 35, 24, 80),
       elevation: 10,
-      shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20)),
-      child:Column(
-      children:[ 
-      SizedBox(height: 20),
-      Container(
-      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 35, 24, 80),
-        borderRadius: BorderRadius.only(
-          topLeft:Radius.circular(20),
-          topRight: Radius.circular(20)
-        ),
-      ),
-      child: Center(
-       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                '\Rs',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  height: 1,
-                ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Column(
+        children: [
+          SizedBox(height: 20),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 35, 24, 80),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        '\Rs',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                          height: 1,
+                        ),
+                      ),
+                      Text(
+                        textValue.text,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                          fontWeight: FontWeight.w600,
+                          height: 0.9,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    'Money Locked',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      height: 1,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                ],
               ),
-              Text(
-                textValue.text,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.w600,
-                  height: 0.9,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            'Money Locked',
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              height: 1,
             ),
           ),
-          SizedBox(
-            height: 12,
-          ),
-         
-         
+          SlidingSwitch(
+              value: value,
+              contentSize: 17,
+              width: 420.0,
+              height: 55.0,
+              onTap: () {},
+              onDoubleTap: () {},
+              onSwipe: () {},
+              colorOn: _secondaryColor,
+              colorOff: Color(0xff6682c0),
+              background: Color.fromARGB(255, 35, 24, 80),
+              animationDuration: const Duration(milliseconds: 400),
+              textOff: "Money Locked",
+              textOn: "Money Unlocked",
+              onChanged: toggleSwitch,
+              inactiveColor: Colors.white,
+              buttonColor: value ? Colors.white : _secondaryColor),
         ],
-      ),),
-    ),
-     SlidingSwitch(
-            value: value,
-            contentSize: 17,
-            width: 420.0,
-            height: 55.0,
-            onTap: () {},
-            onDoubleTap: () {},
-            onSwipe: () {},
-            colorOn: _secondaryColor,
-            colorOff: Color(0xff6682c0),
-            background: Color.fromARGB(255, 35, 24, 80),
-            animationDuration: const Duration(milliseconds: 400),
-            textOff : "Money Locked",
-            textOn : "Money Unlocked",      
-            onChanged: toggleSwitch,
-            inactiveColor: Colors.white,
-            buttonColor: value
-              ? Colors.white
-              : _secondaryColor
-          ),
-            
-    ],
-    ),
+      ),
     );
   }
 
@@ -285,7 +271,6 @@ class _moneyLockState extends State<moneyLock> {
             SizedBox(
               height: 32,
             ),
-           
           ],
         ),
       ),
@@ -492,7 +477,8 @@ class _moneyLockState extends State<moneyLock> {
   }
 
   /// Report Inner Cell
-  Column _reportInnerCell({required bool isSavings, required String title, required String value}) {
+  Column _reportInnerCell(
+      {required bool isSavings, required String title, required String value}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

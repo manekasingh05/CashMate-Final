@@ -5,52 +5,46 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:cashmate_vscode/pages/gridDashboard.dart';
 
-
 class theme_2 extends StatefulWidget {
- const theme_2({super.key});
+  const theme_2({super.key});
 
   @override
- _theme_2State createState() => _theme_2State();
+  _theme_2State createState() => _theme_2State();
 }
 
 class _theme_2State extends State<theme_2> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF674AEF),
-      title:Text("Change Themes",style:TextStyle(fontSize: 22)),
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pushNamed(context, MyRoutes.homePageTheme2Route);
-        },
-        icon: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-        ),   
-      ),
-      ),
-            body: Container(
-         decoration: BoxDecoration(
-        image: DecorationImage(
-          image:  AssetImage("images/theme2.jpg"),
-            fit: BoxFit.cover,
-            ),
-      ),     
-        child:Column(
-        children: <Widget>[
-          SizedBox(
-            height: 40,
+        title: Text("Change Themes", style: TextStyle(fontSize: 22)),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoutes.homePageTheme2Route);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
           ),
-         GridDashboard()
-        ],
+        ),
       ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/theme2.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 40,
+            ),
+            GridDashboard()
+          ],
+        ),
       ),
     );
   }
- 
-
 }
