@@ -60,10 +60,15 @@ flutter.compileSdkVersion=30
 - Click on Start Debugging in Vs Code
 
 ## Screenshots
+![img6](https://github.com/manekasingh05/Cashmate-Final/assets/77896836/16e3d83d-5ef6-4ced-90cf-1f9f4168aa62)
 
 
+![img3](https://github.com/manekasingh05/Cashmate-Final/assets/77896836/64e8ccd6-ff62-4990-b8ba-b6a7b73a64ac)
+
+![img7](https://github.com/manekasingh05/Cashmate-Final/assets/77896836/e1390ac2-268e-4beb-839d-8230322d8d86)
 
 
+![img1](https://github.com/manekasingh05/Cashmate-Final/assets/77896836/23170b23-b4a7-448a-a77e-48c6461adf4b)
 
 
 
