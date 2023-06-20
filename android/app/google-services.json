@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267549226635",
+    "project_id": "cashmate-48e58",
+    "storage_bucket": "cashmate-48e58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267549226635:android:15fecce7dcff9ea5f0c68e",
+        "android_client_info": {
+          "package_name": "com.example.cashmate_vscode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267549226635-8bejb1nam46o87p6eslqi0ajk2bstnns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwVGQNY-5vqWYkGqPF81v4NSj9H992rsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267549226635-8bejb1nam46o87p6eslqi0ajk2bstnns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

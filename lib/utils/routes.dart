@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+
+class MyRoutes {
+  static String loginRoute = "/login";
+  static String registerRoute = "/register";
+  static String userdetailsRoute = "/userdetails";
+  static String splashRoute = "/";
+  static String homeRoute = "/home";
+  static String activityRoute = "/activityscreen";
+  static String paymentRoute = "/payment";
+  static String gameRoute = "/gamescreen";
+  static String moneylockRoute = "/moneylockingscreen";
+  static String budgetPlannerRoute = "/budgetplanner";
+  static String currencyConvertRoute = "/currency";
+  static String addCardRoute = "/addCard";
+  static String cardsRoute = "/cards";
+  static String notificationRoute = "/notifications";
+  static String sendnotificationRoute = "/sendnotification";
+  static String addBankRoute = "/addbank";
+  static String bankDetailsRoute = "/bankdetails";
+  static String successRoute = "/success";
+  static String addMoneyinWalletRoute = "/moneyinwallet";
+  static String selectContacts = "/selectcontacts";
+  static String settingsRoute = "/settings";
+  static String chatRoute = "/chats";
+  static String askMoneyRoute = "/ask";
+  static String changePasswordRoute = "/changepassword";
+  static String inviteRoute = "/invite";
+  static String forgotpasswordRoute = "/forgot";
+  static String homePageTheme2Route = "/hometheme2";
+  static String homePageTheme3Route = "/hometheme3";
+  static String ChangepasswordTheme2Route = "/changepasstheme2";
+  static String ChangepasswordTheme3Route = "/changepasstheme3";
+  static String selectContactTheme2Route = "/selectcontactstheme2";
+  static String selectContactsTheme3Route = "/selectcontactstheme3";
+  static String chatTheme2Route = "/chattheme2";
+  static String chatTheme3Route = "/chattheme3";
+  static String sendNotificationsTheme2Route = "/sendtheme2";
+  static String sendNotificationsTheme3Route = "/sendtheme3";
+  static String settingsTheme2Route = "/settingstheme2";
+  static String settingsTheme3Route = "/settingstheme3";
+  static String selectThemeRoute = "/themes";
+  static String selectTheme2Route = "/theme2";
+  static String selectTheme3Route = "/theme3";
+  static String transactionRoute = "/transactionhistory";
+  static String createBudgetRoute = "/createbudget";
+  static String editMoneyLockingRoute = '/editMoney';
+  static String gameLevelRoute = '/games';
+  static String CurvedNavBarWhiteRoute = '/home';
+  static String GameCurvedNavBarWhiteRoute = '/games';
+  static String LockCurvedNavBarWhiteRoute = '/moneylockingscreen';
+  static String Theme2CurvedNavBarWhiteRoute = '/hometheme2';
+  static String Theme3CurvedNavBarWhiteRoute = '/hometheme3';
+  static String payListUsersRoute = '/listofusers';
+  static String PayWithWalletRoute = '/paywithwallet';
+
+}
